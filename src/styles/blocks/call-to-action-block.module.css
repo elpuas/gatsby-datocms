@@ -1,0 +1,12 @@
+.container {
+    @apply flex items-center;
+    max-height: 500px;
+}
+
+.container > div {
+    @apply w-full;
+}
+
+.container h4 {
+    @apply text-2xl text-primary;
+}

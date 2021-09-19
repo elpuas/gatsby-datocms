@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-quaternary;
+}
+
+h1 {
+    @apply text-9xl pb-4;
+}
+
+h2 {
+    @apply text-7xl pb-4;
+}
+
+h3 {
+    @apply text-5xl pb-4;
+}
+
+h4 {
+    @apply text-3xl pb-4;
+}

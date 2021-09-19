@@ -1,0 +1,7 @@
+.container {
+    @apply flex items-center;
+}
+
+.container > div {
+    @apply w-full;
+}
