@@ -3,7 +3,7 @@ import * as callToActionStyles from '../../styles/blocks/call-to-action-block.mo
 import ContentBlock from "./content-block";
 import ImageBlock from "./content-image";
 import Heading from '../atoms/heading';
-import { Link } from 'gatsby';
+import Button from '../atoms/button';
 
 
 export default function CallToActionBlock( { blockId, ctaContent, ctaImage, callToAction, eyebrow } ) {
@@ -13,7 +13,7 @@ export default function CallToActionBlock( { blockId, ctaContent, ctaImage, call
             <div>
                 <Heading content={ eyebrow } level="4"/>
                 <ContentBlock id={blockId} content={ ctaContent} />
-                <Link to={`/${callToAction.slug}`}>{ callToAction.title }</Link>
+                <Button link={`/${callToAction.slug}`} label={callToAction.title} format="primary" />
             </div>
         </div>
     )

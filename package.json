@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "autoprefixer": "^10.3.4",
+    "classnames": "^2.3.1",
     "gatsby": "^3.13.1",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-image": "^1.13.0",

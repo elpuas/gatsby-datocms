@@ -1,9 +1,19 @@
 @tailwind base;
 @tailwind components;
+@import 'typography.css';
 @tailwind utilities;
 
 body {
     @apply bg-quaternary;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    @apply tracking-tighter;
+    font-family: 'Inter-ExtraBold', Arial, sans-serif;
 }
 
 h1 {

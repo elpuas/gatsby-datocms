@@ -1,0 +1,32 @@
+.button {
+    @apply text-xs uppercase tracking-wide relative inline-flex;
+    font-family: 'Inter Bold', Arial, sans-serif;
+    transform: perspective(1px) translateZ(0px);
+    transition: all 0.4s ease-out 0s;
+}
+
+.primary {
+    @apply px-7 py-5 bg-primary text-quaternary rounded-full items-center;
+    min-width: 160px;
+}
+
+.primary svg {
+    @apply fill-current ml-2;
+    max-width: 18px
+}
+
+.primary:hover {
+    @apply bg-tertiary text-secondary;
+    transform: translateY(-10px);
+}
+
+.secondary {
+    background-image: linear-gradient(120deg,#28dde0,#28dde0);
+    background-repeat: no-repeat;
+    background-size: 100% .4em;
+    background-position: 0 88%;
+}
+
+.secondary svg {
+    @apply hidden;
+}
