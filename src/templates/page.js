@@ -3,17 +3,16 @@ import { graphql } from "gatsby";
 // TODO: import { GatsbyImage } from "gatsby-plugin-image";
 import Blocks from "../components/molecules/blocks";
 import Heading from "../components/atoms/heading";
-import Layout from '../components/atoms/layout';
+import Layout from '../components/molecules/layout';
 
 export default function Page( { data } ) {
     const { pageTitle, pageContent, slug } = data.page.nodes[0];
-
     return (
         <Fragment>
             <Layout>
                 <article className={`section-${slug}`}>
                     <Heading content={ pageTitle } level="1" />
-                    <section className={``}>
+                    <section>
                         <Blocks blocks={ pageContent } />
                     </section>
                 </article>
@@ -55,11 +54,16 @@ query {
                         ... on DatoCmsPage {
                             slug
                             pageTitle
+                            model {
+                                apiKey
+                            }
                         }
                         ... on DatoCmsArticle {
-                            id
                             title
                             slug
+                            model {
+                                apiKey
+                            }
                         }
                     }
                 }

@@ -1,0 +1,3 @@
+.header {
+    @apply flex justify-between max-w-screen-xl mx-auto items-center py-5;
+}

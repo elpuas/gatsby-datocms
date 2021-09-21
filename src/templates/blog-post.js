@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Blocks from "../components/molecules/blocks";
 import Heading from "../components/atoms/heading";
-import Layout from "../components/atoms/layout";
+import Layout from "../components/molecules/layout";
 
 // import { PageWrapper, PageInner, PageTitle } from '../components/Elements';
 // import { blogPostTypes } from '../types/propTypes';

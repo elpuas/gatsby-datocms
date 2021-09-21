@@ -1,0 +1,12 @@
+.nav {
+    @apply flex;
+}
+
+.nav a {
+    @apply lowercase p-5;
+    font-family: 'Inter-Bold', Arial, sans-serif;
+}
+
+.nav a:hover {
+    @apply text-primary;
+}
