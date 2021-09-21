@@ -11,7 +11,7 @@ export default function Navigation() {
         <nav>
             <ul className={ navigationStyles.nav }>
                 <li><Link to={`/`}>Home.</Link></li>
-                <li><Link to={`/`}>About.</Link></li>
+                <li><Link to={`/about`}>About.</Link></li>
                 <li><Link to={`/`}>Blog.</Link></li>
                 <li><Link to={`/`}>Contact.</Link></li>
             </ul>

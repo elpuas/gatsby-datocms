@@ -10,13 +10,13 @@ import Layout from "../components/molecules/layout";
 // import SEO from '../components/SEO';
 
 const BlogPost = ( { data } ) => {
-    const { title, slug, content, categories, featureImage } = data.article.nodes[0];
+    const { title, content, categories, featureImage } = data.datoCmsArticle;
 
     return (
         <Fragment>
             {/* <SEO meta={seoMetaTags} /> */}
             <Layout>
-                <article className={`article-${slug}`}>
+                <article className={``}>
                     <Heading content={ title } level="1" />
                     <GatsbyImage image={ featureImage.gatsbyImageData }  alt={ featureImage.alt}/>
                     <div className="cat-container">
@@ -35,44 +35,38 @@ const BlogPost = ( { data } ) => {
 };
 
 export const articleQuery = graphql`
-query {
-    article: allDatoCmsArticle {
-        nodes {
-            slug
-            title
-            categories {
-                categoryTitle
-            }
-            featureImage {
-                alt
-                gatsbyImageData(
-                    width: 600,
-                    placeholder: BLURRED,
-                    forceBlurhash: false,
-                )
-            }
-            content {
-                ... on DatoCmsImageBlock {
-                    id
-                    model {
-                    apiKey
-                    }
-                    image {
-                        alt
-                        gatsbyImageData(
-                            width: 600
-                            placeholder: BLURRED
-                            forceBlurhash: true
-                            imgixParams: {}
-                        )
-                    }
+query PostQuery($slug: String!){
+    datoCmsArticle( slug: { eq: $slug } ) {
+        title
+        categories {
+            categoryTitle
+        }
+        featureImage {
+            alt
+            gatsbyImageData(
+                placeholder: BLURRED,
+                forceBlurhash: false,
+            )
+        }
+        content {
+            ... on DatoCmsImageBlock {
+                id
+                model {
+                apiKey
                 }
-                ... on DatoCmsContentBlock {
-                    id
-                    content
-                    model {
-                        apiKey
-                    }
+                image {
+                    alt
+                    gatsbyImageData(
+                        placeholder: BLURRED,
+                        forceBlurhash: false,
+                    )
+                }
+            }
+            ... on DatoCmsContentBlock {
+                id
+                content
+                model {
+                    apiKey
                 }
             }
         }

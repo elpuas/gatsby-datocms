@@ -4,6 +4,7 @@ import CallToActionBlock from '../components/blocks/call-to-action-block';
 import ContentBlock from '../components/blocks/content-block';
 import ImageBlock from '../components/blocks/content-image';
 import TwoColumnsBlock from '../components/blocks/two-column-block';
+import CodeBlock from '../components/blocks/code-block';
 
 /**
  * Decide which block component to display.
@@ -13,7 +14,16 @@ import TwoColumnsBlock from '../components/blocks/two-column-block';
  * @return {Element} A block-based component.
  */
 export default function displayBlock( block, index ) {
-    const { id, model, content, image, blockContent, blockImage, eyebrow, callToAction } = block
+    const {
+        id,
+        model,
+        content,
+        image,
+        blockContent,
+        blockImage,
+        eyebrow,
+        callToAction,
+        flexibleContent } = block
 
     switch ( model.apiKey ) {
         case 'content_block':
@@ -26,7 +36,10 @@ export default function displayBlock( block, index ) {
         return <TwoColumnsBlock blockId={id} columnContent={ blockContent } columnImage={ blockImage } key={index} />
 
         case 'call_to_action_block':
-        return <CallToActionBlock blockId={id} ctaContent={ content } ctaImage={ image} key={index} callToAction={callToAction} eyebrow={eyebrow} />
+        return <CallToActionBlock blockId={id} ctaContent={ content } ctaImage={image} key={index} callToAction={callToAction} eyebrow={eyebrow} />
+
+        case 'article_content':
+        return <CodeBlock value={ flexibleContent.value.document.children[0] } key={index} />
 
         default:
         return <pre key={index}>{JSON.stringify(block, null, 2)}</pre>

@@ -1,0 +1,26 @@
+.card {
+    @apply w-full h-80;
+    perspective: 1000px;
+    background: transparent;
+}
+
+.card:hover .cardInner {
+    transform: rotateY(180deg);
+}
+
+.cardInner {
+    @apply relative w-full h-full text-center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.cardFront,
+.cardBack {
+    @apply absolute w-full h-full;
+    backface-visibility: hidden;
+}
+
+.cardBack {
+    @apply flex flex-col justify-center bg-tertiary text-quaternary p-4;
+    transform: rotateY(180deg);
+}

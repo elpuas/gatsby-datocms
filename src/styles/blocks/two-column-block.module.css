@@ -1,7 +1,11 @@
 .container {
-    @apply flex items-center;
+    @apply flex items-center flex-col-reverse md:flex-row;
 }
 
 .container > div {
     @apply w-full;
+}
+
+.container > div:first-child {
+    @apply p-10;
 }

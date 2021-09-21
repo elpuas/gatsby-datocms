@@ -1,6 +1,5 @@
 .container {
-    @apply flex items-center;
-    max-height: 500px;
+    @apply flex items-center flex-col-reverse md:flex-row;
 }
 
 .container > div {
@@ -9,4 +8,12 @@
 
 .container h4 {
     @apply text-2xl text-primary;
+}
+
+.container > div:last-child {
+    @apply p-10;
+}
+
+.container p {
+    @apply mb-8;
 }

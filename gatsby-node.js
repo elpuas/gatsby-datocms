@@ -9,14 +9,16 @@ exports.createPages = ({ graphql, actions }) => {
             graphql(`
             {
                 allDatoCmsArticle {
-                    nodes {
+                    edges {
+                        node {
                         slug
+                        }
                     }
                 }
             }
             `).then( res => {
-                const posts = res.data.allDatoCmsArticle.nodes;
-                posts.map(post => {
+                const posts = res.data.allDatoCmsArticle.edges;
+                posts.map( ( { node: post } ) => {
                     const { slug } = post;
 
                     createPage({
@@ -40,16 +42,17 @@ exports.createPages = ({ graphql, actions }) => {
             graphql(`
             {
                 allDatoCmsPage {
-                    nodes {
+                    edges {
+                        node {
                         slug
+                        }
                     }
                 }
             }
             `).then( res => {
-                const pages = res.data.allDatoCmsPage.nodes;
-                pages.map( page => {
+                const pages = res.data.allDatoCmsPage.edges;
+                pages.map( ( { node: page } ) => {
                     const { slug } = page;
-
                     createPage( {
                         path: `/${slug}`,
                         component: path.resolve('./src/templates/page.js'),

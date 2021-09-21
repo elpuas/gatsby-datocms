@@ -24,5 +24,5 @@ ContentBlock.propTypes = {
 
 ContentBlock.defaultProps = {
     id: 'content-block',
-    content: '##I know it was you, Fredo. You broke my heart. \nI spent my whole life trying not to be careless. \nWomen and children can afford to be careless, but not men.',
+    content: '## I know it was you, Fredo. You broke my heart. \nI spent my whole life trying not to be careless. \nWomen and children can afford to be careless, but not men.',
 }
