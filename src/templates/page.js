@@ -6,14 +6,14 @@ import Heading from "../components/atoms/heading";
 import Layout from '../components/molecules/layout';
 
 export default function Page( { data } ) {
-    const { pageTitle, pageContent, slug } = data.page.nodes[0];
+    const { title, content, slug } = data.page.nodes[0];
     return (
         <Fragment>
             <Layout>
                 <article className={`section-${slug}`}>
-                    <Heading content={ pageTitle } level="1" />
+                    <Heading content={ title } level="1" />
                     <section>
-                        <Blocks blocks={ pageContent } />
+                        <Blocks blocks={ content } />
                     </section>
                 </article>
             </Layout>
@@ -26,8 +26,8 @@ query {
     page: allDatoCmsPage {
         nodes {
             slug
-            pageTitle
-            pageContent {
+            title
+            content {
                 ... on DatoCmsTwoColumnBlock {
                     id
                     blockContent
@@ -53,7 +53,7 @@ query {
                     callToAction {
                         ... on DatoCmsPage {
                             slug
-                            pageTitle
+                            title
                             model {
                                 apiKey
                             }
