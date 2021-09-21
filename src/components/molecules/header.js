@@ -3,9 +3,12 @@ import Navigation from './navigation'
 import Logo from '../atoms/logo'
 import cx from 'classnames'
 import * as headerStyles from '../../styles/molecules/header.module.css'
-
+/**
+ * Render the header component
+ *
+ * @return {Element}
+ */
 export default function Header() {
-
     const prevScrollY = useRef(0);
     const [goingUp, setGoingUp] = useState(true);
 
@@ -13,19 +16,22 @@ export default function Header() {
         const handleScroll = () => {
         const currentScrollY = window.scrollY;
         if ( prevScrollY.current < currentScrollY && goingUp ) {
-            if( currentScrollY >= 100){ setGoingUp(false) };
+            if( currentScrollY >= 100 ) {
+                setGoingUp(false)
+            };
         }
         if ( prevScrollY.current > currentScrollY && !goingUp ) {
-            if( currentScrollY <= 100){ setGoingUp(true);}
+            if( currentScrollY <= 100 ) {
+                setGoingUp(true);
+            }
         }
-
         prevScrollY.current = currentScrollY;
-        console.log( goingUp, currentScrollY );
         };
 
         window.addEventListener("scroll", handleScroll, { passive: true });
 
         return () => window.removeEventListener("scroll", handleScroll);
+
     }, [goingUp]);
 
     return (

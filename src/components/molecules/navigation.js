@@ -1,7 +1,11 @@
 import * as React from "react";
 import { Link } from 'gatsby';
 import * as navigationStyles from '../../styles/molecules/navigation.module.css'
-
+/**
+ * Render the navigation component
+ *
+ * @return {Element} The navigation component
+ */
 export default function Navigation() {
     return (
         <nav>

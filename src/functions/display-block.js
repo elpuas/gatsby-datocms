@@ -1,9 +1,17 @@
-import React from 'react'
+import * as React from 'react'
+import PropTypes from 'prop-types';
 import CallToActionBlock from '../components/blocks/call-to-action-block';
 import ContentBlock from '../components/blocks/content-block';
 import ImageBlock from '../components/blocks/content-image';
 import TwoColumnsBlock from '../components/blocks/two-column-block';
 
+/**
+ * Decide which block component to display.
+ *
+ * @param  {object}  block The block data.
+ * @param  {number}  index A unique key required by React.
+ * @return {Element} A block-based component.
+ */
 export default function displayBlock( block, index ) {
     const { id, model, content, image, blockContent, blockImage, eyebrow, callToAction } = block
 
@@ -23,4 +31,9 @@ export default function displayBlock( block, index ) {
         default:
         return <pre key={index}>{JSON.stringify(block, null, 2)}</pre>
     }
+}
+
+displayBlock.propTypes = {
+    block: PropTypes.object.isRequired,
+    index: PropTypes.number.isRequired
 }
