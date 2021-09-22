@@ -1,4 +1,5 @@
 import * as React from 'react'
+import * as videoStyles from '../../styles/blocks/video-block.module.css'
 import PropTypes from 'prop-types';
 /**
  * Render the video block component
@@ -9,7 +10,7 @@ import PropTypes from 'prop-types';
  */
 export default function Video( { videoSrcURL, videoTitle } ) {
     return (
-        <div className={``}>
+        <div className={videoStyles.videoWrapper}>
             <iframe
                 src={videoSrcURL}
                 title={videoTitle}

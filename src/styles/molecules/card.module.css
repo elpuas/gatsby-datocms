@@ -1,5 +1,5 @@
 .card {
-    @apply w-full h-80;
+    @apply w-full;
     perspective: 1000px;
     background: transparent;
 }
@@ -20,7 +20,11 @@
     backface-visibility: hidden;
 }
 
+.cardFront {
+    @apply z-10;
+}
+
 .cardBack {
-    @apply flex flex-col justify-center bg-tertiary text-quaternary p-4;
+    @apply flex flex-col justify-center z-50 bg-tertiary text-quaternary p-4;
     transform: rotateY(180deg);
 }

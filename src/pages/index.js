@@ -21,19 +21,19 @@ const IndexPage = ( { data } ) => {
           <Button link={`/${link.slug}`} />
         </div>
       </section>
-      <section className={ cx(indexStyles.videoHero, indexStyles.section) }>
-        <div>
-          <ContentBlock />
-          <Video />
+      <section className={indexStyles.section}>
+        <div className={indexStyles.videoHero}>
+          <ContentBlock content={videoExcerpt} />
+          <Video videoSrcURL={videoUrl} />
         </div>
       </section>
       <section className={ cx(indexStyles.recentPosts, indexStyles.section) }>
         <div className={ indexStyles.cardGrid }>
           {selectedPosts.map( ( post, index ) => {
-            const { title, featureImage, categories } = post;
+            const { title, featureImage, categories, slug } = post;
             return(
               <>
-                <Card title={title} image={featureImage} categories={ categories} key={index} />
+                <Card title={title} image={featureImage} categories={ categories} key={index} slug={slug} label="Go to article." />
               </>
             )
           })}
@@ -47,7 +47,7 @@ const IndexPage = ( { data } ) => {
 export default IndexPage
 
 export const pageQuery = graphql`
-query HomeQuery{
+query HomeQuery {
     datoCmsHome {
       legend
       link {
@@ -61,13 +61,11 @@ query HomeQuery{
           categoryTitle
         }
         featureImage {
-          gatsbyImageData
+          gatsbyImageData(imgixParams: {duotone: "000,FFF"})
           alt
         }
+        slug
         title
-        model {
-          apiKey
-        }
       }
     }
 }

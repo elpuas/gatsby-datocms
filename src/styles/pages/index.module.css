@@ -1,10 +1,26 @@
 .section {
-    @apply w-full h-screen flex justify-center items-center;
+    @apply w-full flex justify-center items-center;
     scroll-snap-align: start;
+    height: calc(100vh - 90px);
 }
 
 .cardGrid {
-    @apply grid grid-cols-1 md:grid-cols-3 w-full gap-4;
+    @apply grid grid-cols-1 md:grid-cols-3 grid-rows-2 w-full gap-16;
+}
+
+.cardGrid > div {
+    min-height: 240px;
+}
+
+.cardGrid > div:first-child {
+    min-height: 480px;
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+}
+
+.cardGrid > div:last-child {
+    grid-column: 3;
+    grid-row: 1;
 }
 
 .hero {
@@ -12,7 +28,11 @@
 }
 
 .videoHero {
+    @apply flex items-center;
+}
 
+.videoHero > div {
+    @apply w-full;
 }
 
 .recentPosts {
