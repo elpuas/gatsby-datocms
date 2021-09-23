@@ -1,5 +1,6 @@
 import * as React from 'react'
 import * as cardStyles from '../../styles/molecules/card.module.css'
+import cx from 'classnames';
 import Button from '../atoms/button';
 import Heading from '../atoms/heading';
 import ImageBlock from '../blocks/content-image';
@@ -12,13 +13,13 @@ import ImageBlock from '../blocks/content-image';
  * @param  {Array}   props.categories   The post categories title.
  * @return {Element} The card component
  */
-export default function Card( { title, image, categories, slug, label } ) {
+export default function Card( { title, image, categories, slug, label, imageClass } ) {
     return (
-        <div className={cardStyles.card}>
+        <div className={ cardStyles.card }>
             <div className={cardStyles.cardInner}>
-                <div className={cardStyles.cardFront}>
+                <div className={cx(cardStyles.cardFront, imageClass && imageClass)}>
                     <ImageBlock image={image} alt={image} />
-                    <div className={``}>
+                    <div className={cardStyles.header}>
                     <ul>
                         {categories.map( ( cat, index ) => <li key={index}>{ cat.categoryTitle }</li> ) }
                     </ul>

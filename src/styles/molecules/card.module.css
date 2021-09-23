@@ -24,7 +24,12 @@
     @apply z-10;
 }
 
+.header {
+    @apply bg-white p-3 -mt-4 mx-auto relative;
+    max-width: 75%;
+}
+
 .cardBack {
-    @apply flex flex-col justify-center z-50 bg-tertiary text-quaternary p-4;
+    @apply flex flex-col justify-center z-50 bg-black text-white p-4;
     transform: rotateY(180deg);
 }

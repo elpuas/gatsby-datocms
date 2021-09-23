@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as indexStyles from '../styles/pages/index.module.css'
+import { StaticImage } from "gatsby-plugin-image"
 import { graphql } from "gatsby";
 import cx from 'classnames';
 import Button from '../components/atoms/button';
@@ -24,16 +25,26 @@ const IndexPage = ( { data } ) => {
       <section className={indexStyles.section}>
         <div className={indexStyles.videoHero}>
           <ContentBlock content={videoExcerpt} />
-          <Video videoSrcURL={videoUrl} />
+          <Video videoSrcURL={videoUrl}>
+            <StaticImage src="https://placekitten.com/800/600" alt="A Static Placeholder" />
+          </Video>
         </div>
       </section>
       <section className={ cx(indexStyles.recentPosts, indexStyles.section) }>
+        <Heading content="From the Blog." level="2" />
         <div className={ indexStyles.cardGrid }>
           {selectedPosts.map( ( post, index ) => {
             const { title, featureImage, categories, slug } = post;
             return(
               <>
-                <Card title={title} image={featureImage} categories={ categories} key={index} slug={slug} label="Go to article." />
+                <Card
+                title={title}
+                image={featureImage}
+                categories={ categories}
+                key={index}
+                slug={slug}
+                label="Go to article."
+                imageClass={ indexStyles.card } />
               </>
             )
           })}

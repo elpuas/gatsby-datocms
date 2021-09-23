@@ -8,3 +8,7 @@
     max-height: 500px;
 }
 
+.thumbnail {
+    @apply w-full h-full;
+}
+
