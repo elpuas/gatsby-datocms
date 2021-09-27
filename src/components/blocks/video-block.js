@@ -46,4 +46,5 @@ Video.propTypes = {
 Video.defaultProps = {
     videoSrcURL: 'https://www.youtube.com/embed/Unqsu8aGy8Y',
     videoTitle: '30 Seconds with Reemo at The Berrics Plaza',
+    children: React.createElement('img', { src: 'https://placekitten.com/800/600', alt: 'placeholder' }),
 }
