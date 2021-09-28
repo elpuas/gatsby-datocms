@@ -1,6 +1,6 @@
-import * as React from "react";
 import { Link } from 'gatsby';
-import * as navigationStyles from '../../styles/molecules/navigation.module.css'
+import * as navigationStyles from '../../styles/structures/navigation.module.css'
+import * as React from "react";
 /**
  * Render the navigation component
  *
@@ -12,7 +12,7 @@ export default function Navigation() {
             <ul className={ navigationStyles.nav }>
                 <li><Link to={`/`}>Home.</Link></li>
                 <li><Link to={`/about`}>About.</Link></li>
-                <li><Link to={`/`}>Blog.</Link></li>
+                <li><Link to={`/blog/1`}>Blog.</Link></li>
                 <li><Link to={`/`}>Contact.</Link></li>
             </ul>
         </nav>

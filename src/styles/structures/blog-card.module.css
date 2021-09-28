@@ -1,0 +1,12 @@
+.blogCard {
+    @apply my-8 flex flex-col-reverse md:flex-row items-center mb-16;
+}
+
+.blogCard > div:first-child {
+    @apply w-full pr-24;
+}
+
+.blogCard > div:last-child {
+    @apply w-full md:w-4/12;
+    height: 300px;
+}

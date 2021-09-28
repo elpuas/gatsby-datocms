@@ -9,7 +9,9 @@ import ReactMarkdown from 'react-markdown'
  * @param  {string}   props.content  The block content in markdown.
  * @return {Element} The content component.
  */
-export default function ContentBlock( { id, content } ) {
+export default function ContentBlock( props ) {
+    const { id, content } = props;
+
     return (
         <div id={ id } >
             <ReactMarkdown>{ content }</ReactMarkdown>

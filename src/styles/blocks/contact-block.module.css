@@ -1,10 +1,6 @@
 .contactBlock {
-    @apply text-center mx-auto;
+    @apply text-center mx-auto my-8;
     max-width: 80%;
-}
-
-.isAvailable {
-
 }
 
 .subheading {
@@ -15,6 +11,11 @@
     @apply block w-3 h-3 rounded-full mr-6;
     background-color: red;
 }
+
+.available.isAvailable {
+    background-color: #8ade0a;
+}
+
 .heading {
     @apply text-6xl my-12 pb-0;
     line-height: 70px;

@@ -1,5 +1,5 @@
 import React from "react"
-import Video from "../components/blocks/video-block"
+import Video from "../components/bricks/video-block"
 
 export default {
     component: Video,

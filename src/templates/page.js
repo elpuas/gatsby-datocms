@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
 import { graphql } from "gatsby";
-import Blocks from "../components/molecules/blocks";
-import Heading from "../components/atoms/heading";
-import Layout from '../components/molecules/layout';
+import Blocks from "../components/structures/blocks";
+import Heading from "../components/bricks/heading";
+import Layout from '../components/structures/layout';
+import React, { Fragment } from "react";
 
 export default function Page( { data } ) {
     const { title, content, slug } = data.datoCmsPage;
@@ -96,6 +96,29 @@ query PageQuery($slug: String!) {
                 model {
                     apiKey
                 }
+            }
+            ... on DatoCmsContactBlock {
+                model {
+                apiKey
+                }
+                available
+                heading
+                link {
+                    ... on DatoCmsPage {
+                        slug
+                        title
+                    }
+                    ... on DatoCmsArticle {
+                        id
+                        slug
+                        title
+                    }
+                    ... on DatoCmsCategory {
+                        categoryTitle
+                        slug
+                    }
+                }
+                subheading
             }
         }
     }

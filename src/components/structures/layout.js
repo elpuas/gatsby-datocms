@@ -1,8 +1,8 @@
-import * as React from 'react'
-import PropTypes from 'prop-types';
 import * as layoutStyles from '../../styles/layout.module.css'
-import Header from './header';
+import * as React from 'react'
 import Footer from './footer';
+import Header from './header';
+import PropTypes from 'prop-types';
 /**
  * Layout Component
  *

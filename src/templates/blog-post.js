@@ -1,32 +1,42 @@
-import React, { Fragment } from "react";
-import { graphql, Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import Blocks from "../components/molecules/blocks";
-import Heading from "../components/atoms/heading";
-import Layout from "../components/molecules/layout";
+import { graphql } from "gatsby";
+import * as styles from "../styles/templates/blog-post.module.css"
+import Blocks from "../components/structures/blocks";
+import cx from "classnames"
+import Heading from "../components/bricks/heading";
+import Layout from "../components/structures/layout";
+import React, { Fragment } from "react";
 
-// import { PageWrapper, PageInner, PageTitle } from '../components/Elements';
-// import { blogPostTypes } from '../types/propTypes';
 // import SEO from '../components/SEO';
 
 const BlogPost = ( { data } ) => {
-    const { title, content, categories, featureImage } = data.datoCmsArticle;
+    const {
+        title,
+        content,
+        categories,
+        featureImage,
+        slug,
+        postDate
+    } = data.datoCmsArticle;
+
+    const date = new Date(postDate);
+    const createdOn = date.toLocaleDateString('en-US');
 
     return (
         <Fragment>
             {/* <SEO meta={seoMetaTags} /> */}
             <Layout>
-                <article className={``}>
-                    <Heading content={ title } level="1" />
+                <article className={cx( styles.post, `post-${slug}`)}>
+                    <header className={styles.postHeader}>
+                        <ul className={styles.catList}>
+                            {categories.map( ( cat, index ) => <li key={index}>{ cat.categoryTitle }</li> ) }
+                        </ul>
+                        <p className={styles.dateCreated}>{`Published: ${createdOn}`}</p>
+                        <Heading content={ title } level="1" />
+                    </header>
                     <GatsbyImage image={ featureImage.gatsbyImageData }  alt={ featureImage.alt}/>
-                    <div className="cat-container">
-                        {categories.map( ( cat, index ) => <p key={index}>{ cat.categoryTitle }</p> ) }
-                    </div>
-                    <section>
+                    <section className={ styles.postContent }>
                         <Blocks blocks={ content } />
-                        <Link to="/">
-                            <button>Go Back</button>
-                        </Link>
                     </section>
                 </article>
             </Layout>
@@ -38,6 +48,8 @@ export const articleQuery = graphql`
 query PostQuery($slug: String!){
     datoCmsArticle( slug: { eq: $slug } ) {
         title
+        slug
+        postDate(fromNow: false)
         categories {
             categoryTitle
         }
@@ -65,6 +77,14 @@ query PostQuery($slug: String!){
             ... on DatoCmsContentBlock {
                 id
                 content
+                model {
+                    apiKey
+                }
+            }
+            ... on DatoCmsArticleContent {
+                flexibleContent {
+                    value
+                }
                 model {
                     apiKey
                 }

@@ -13,22 +13,23 @@ import * as twoColumnStyles from '../../styles/blocks/two-column-block.module.cs
  * @param {object}   props.columnImage    The block image object
  * @return {Element} The two column block
  */
-export default function TwoColumnsBlock( { blockId, columnContent, columnImage } ) {
+export default function TwoColumnsBlock( props ) {
+    const { blockId, blockContent, blockImage } = props
     return (
         <div className={ twoColumnStyles.container}>
-            <ContentBlock id={blockId} content={ columnContent} />
-            <ImageBlock image={ columnImage } alt={ columnImage }  />
+            <ContentBlock id={blockId} content={ blockContent} />
+            <ImageBlock image={ blockImage } alt={ blockImage }  />
         </div>
     )
 }
 
 TwoColumnsBlock.propTypes = {
     blockId: PropTypes.string,
-    columnContent: PropTypes.string,
-    columnImage: PropTypes.object,
+    blockContent: PropTypes.string,
+    blockImage: PropTypes.object,
 }
 
 TwoColumnsBlock.defaultProps = {
     blockId: 'two-column-block',
-    columnContent: '##I know it was you, Fredo. You broke my heart. \nI spent my whole life trying not to be careless. \nWomen and children can afford to be careless, but not men.',
+    blockContent: '##I know it was you, Fredo. You broke my heart. \nI spent my whole life trying not to be careless. \nWomen and children can afford to be careless, but not men.',
 }

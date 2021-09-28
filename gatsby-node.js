@@ -69,5 +69,58 @@ exports.createPages = ({ graphql, actions }) => {
     });
 
     // eslint-disable-next-line
-    return Promise.all([createBlogsPosts, createPostPage]);
+    const createBlogPage = new Promise((resolve, reject) => {
+        try {
+            graphql(`
+                {
+                    allDatoCmsArticle(sort: {fields: meta___createdAt, order: DESC}) {
+                        totalCount
+                        edges {
+                            node {
+                            excerpt
+                            featureImage {
+                                alt
+                                gatsbyImageData
+                            }
+                            title
+                            slug
+                            categories {
+                                slug
+                                categoryTitle
+                            }
+                            }
+                        }
+                    }
+                }
+            `).then( res => {
+                const blog = res.data.allDatoCmsArticle.edges;
+                const totalPages = res.data.allDatoCmsArticle.totalCount
+                let size = 1
+                let start = 0
+
+                let groupedBlog = Array.from(Array(Math.ceil(totalPages / size)))
+                groupedBlog = groupedBlog.map( () => {
+                    const group = blog.slice( start, start + size)
+                    start += size;
+                    return group
+                })
+
+                groupedBlog.forEach((group, index) => {
+                    const blog = index + 1;
+                    createPage({
+                        path:`/blog/${blog}`,
+                        component: path.resolve('./src/templates/blog.js'),
+                        context: { groupedBlog, group, blog }
+                    })
+                })
+                resolve();
+            })
+
+        } catch (error) {
+            reject(error);
+        }
+    } )
+
+    // eslint-disable-next-line
+    return Promise.all([createBlogsPosts, createPostPage, createBlogPage]);
 };

@@ -1,5 +1,5 @@
 import React from "react"
-import Heading from "../components/atoms/heading"
+import Heading from "../components/bricks/heading"
 
 export default {
     component: Heading,

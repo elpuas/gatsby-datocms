@@ -4,6 +4,6 @@
 }
 
 .scroll {
-    @apply shadow-md fixed z-50 bg-quaternary px-5 max-w-full w-screen;
+    @apply shadow-md fixed z-50 bg-quaternary px-5 max-w-full w-screen top-0;
     transform: translateY(0%);
 }

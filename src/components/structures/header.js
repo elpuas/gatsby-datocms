@@ -1,8 +1,8 @@
-import React, { useRef, useEffect, useState } from "react";
-import Navigation from './navigation'
-import Logo from '../atoms/logo'
+import * as headerStyles from '../../styles/structures/header.module.css'
 import cx from 'classnames'
-import * as headerStyles from '../../styles/molecules/header.module.css'
+import Logo from '../bricks/logo'
+import Navigation from './navigation'
+import React, { useRef, useEffect, useState } from "react";
 /**
  * Render the header component
  *

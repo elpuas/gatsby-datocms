@@ -1,15 +1,15 @@
+import { graphql } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react";
 import * as styles from '../styles/pages/index.module.css'
-import { StaticImage } from "gatsby-plugin-image"
-import { graphql } from "gatsby";
-import cx from 'classnames';
-import Button from '../components/atoms/button';
-import Card from "../components/molecules/card";
-import ContentBlock from "../components/blocks/content-block";
-import Heading from '../components/atoms/heading';
-import Layout from "../components/molecules/layout";
-import Video from "../components/blocks/video-block";
+import Button from '../components/bricks/button';
+import Card from "../components/structures/card";
 import ContactBlock from "../components/blocks/contact-block";
+import ContentBlock from "../components/blocks/content-block";
+import cx from 'classnames';
+import Heading from '../components/bricks/heading';
+import Layout from "../components/structures/layout";
+import Video from "../components/blocks/video-block";
 
 // markup
 const IndexPage = ( { data } ) => {
@@ -46,24 +46,10 @@ const IndexPage = ( { data } ) => {
         <section className={ cx(styles.recentPosts, styles.section) }>
           <Heading content="From the Blog." level="2" />
           <div className={ styles.cardGrid }>
-            {selectedPosts.map( ( post, index ) => {
-              const { title, featureImage, categories, slug } = post;
-              return(
-                <>
-                  <Card
-                  title={title}
-                  image={featureImage}
-                  categories={ categories}
-                  key={index}
-                  slug={slug}
-                  label="Go to article."
-                  imageClass={ styles.card } />
-                </>
-              )
-            })}
+            {selectedPosts.map( ( post, index ) => <Card key={index} label="Go to article." imageClass={ styles.card } {...post} /> )}
           </div>
         </section>
-        <ContactBlock />
+        <ContactBlock {...contactBlock} />
       </article>
     </Layout>
     </>
@@ -108,6 +94,7 @@ query HomeQuery {
         ... on DatoCmsArticle {
           slug
           title
+          excerpt
         }
         ... on DatoCmsCategory {
           slug

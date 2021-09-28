@@ -1,5 +1,5 @@
 .container {
-    @apply flex items-center flex-col-reverse md:flex-row;
+    @apply flex items-center flex-col-reverse md:flex-row my-8;
 }
 
 .container > div {

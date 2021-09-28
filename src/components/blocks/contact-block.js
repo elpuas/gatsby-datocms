@@ -1,8 +1,8 @@
 import * as React from 'react'
 import * as styles from '../../styles/blocks/contact-block.module.css'
-import PropTypes from 'prop-types';
+import Button from '../bricks/button'
 import cx from 'classnames'
-import Button from '../atoms/button'
+import PropTypes from 'prop-types';
 /**
  * Render the Contact Block component
  *
@@ -13,7 +13,8 @@ import Button from '../atoms/button'
  * @param {string} props.url The button link
  * @return {Element}  The contact block component
  */
-export default function ContactBlock({ available, subheading, heading, url }) {
+export default function ContactBlock(props) {
+    const { available, subheading, heading, url } = props
     return (
         <div className={styles.contactBlock}>
             <p className={styles.subheading}>

@@ -1,9 +1,10 @@
-import * as React from 'react'
-import PropTypes from 'prop-types';
-import cx from 'classnames';
-import * as buttonStyles from '../../styles/atoms/button.module.css'
-import { Link } from 'gatsby'
 import { Arrow } from '../../functions/icons';
+import { Link } from 'gatsby'
+import * as buttonStyles from '../../styles/bricks/button.module.css'
+import * as React from 'react'
+import cx from 'classnames';
+import PropTypes from 'prop-types';
+
 /**
  * Render the button block component.
  *
@@ -13,7 +14,13 @@ import { Arrow } from '../../functions/icons';
  * @param  {string}   props.format Whether the button is primary or secondary.
  * @return {Element} The button component
  */
-export default function Button( { link, label, format } ) {
+export default function Button(props) {
+    const {
+        link,
+        label,
+        format
+    } = props
+
     return (
         <div className={cx(
             buttonStyles.button,
