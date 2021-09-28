@@ -5,11 +5,11 @@ import Heading from "../components/atoms/heading";
 import Layout from '../components/molecules/layout';
 
 export default function Page( { data } ) {
-    const { title, content } = data.datoCmsPage;
+    const { title, content, slug } = data.datoCmsPage;
     return (
         <Fragment>
             <Layout>
-                <article className={``}>
+                <article className={`page-${slug}`}>
                     <Heading content={ title } level="1" />
                     <section>
                         <Blocks blocks={ content } />
@@ -24,6 +24,7 @@ export const pageQuery = graphql`
 query PageQuery($slug: String!) {
     datoCmsPage( slug: { eq: $slug } ) {
         title
+        slug
         content {
             ... on DatoCmsContentBlock {
                 id

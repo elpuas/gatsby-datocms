@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import * as videoStyles from '../../styles/blocks/video-block.module.css'
+import * as styles from '../../styles/blocks/video-block.module.css'
 import PropTypes from 'prop-types';
 /**
  * Render the video block component
@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
  * @param {string} props.videoSrcURL The video url (youTube, Vimeo, etc ).
  * @param {string} props.videoTitle The video title
  * @param {string} props.children The thumbnail image URL
- * @return {*}
+ * @return {Element}
  */
 export default function Video( { videoSrcURL, videoTitle, children } ) {
     const [hideThumbnail, setHideThumbnail] = useState(false);
@@ -19,8 +19,8 @@ export default function Video( { videoSrcURL, videoTitle, children } ) {
     }
 
     return (
-        <div className={videoStyles.videoWrapper}>
-            <button onClick={ onClick } className={videoStyles.thumbnail} style={{display: hideThumbnail ? 'none' : 'block'}}>
+        <div className={styles.videoWrapper}>
+            <button onClick={ onClick } className={styles.thumbnail} style={{display: hideThumbnail ? 'none' : 'block'}}>
                 {children}
             </button>
             <iframe

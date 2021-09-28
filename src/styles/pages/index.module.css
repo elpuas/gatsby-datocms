@@ -1,3 +1,6 @@
+.homeArticle > div {
+    @apply my-28;
+}
 .section {
     @apply w-full flex justify-center items-center;
     scroll-snap-align: start;
@@ -6,6 +9,10 @@
 
 .hero {
 
+}
+
+.videoSection > h2 {
+    @apply mb-28;
 }
 
 .videoHero {

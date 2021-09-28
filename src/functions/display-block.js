@@ -41,6 +41,10 @@ export default function displayBlock( block, index ) {
         case 'article_content':
         return <CodeBlock value={ flexibleContent.value.document.children[0] } key={index} />
 
+        case 'contact_block':
+        // TODO: CHECK ON THE SCAFFOLDING PAGE.
+        return <pre key={index}>{JSON.stringify(flexibleContent, null, 2)}</pre>
+
         default:
         return <pre key={index}>{JSON.stringify(block, null, 2)}</pre>
     }
