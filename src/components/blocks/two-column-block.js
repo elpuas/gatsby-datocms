@@ -2,7 +2,7 @@ import * as React from 'react'
 import PropTypes from 'prop-types';
 import ContentBlock from "./content-block";
 import ImageBlock from "./content-image";
-import * as twoColumnStyles from '../../styles/blocks/two-column-block.module.css'
+import * as styles from '../../styles/blocks/two-column-block.module.css'
 
 /**
  * Render the two column block component
@@ -16,7 +16,7 @@ import * as twoColumnStyles from '../../styles/blocks/two-column-block.module.cs
 export default function TwoColumnsBlock( props ) {
     const { blockId, blockContent, blockImage } = props
     return (
-        <div className={ twoColumnStyles.container}>
+        <div className={ styles.container}>
             <ContentBlock id={blockId} content={ blockContent} />
             <ImageBlock image={ blockImage } alt={ blockImage }  />
         </div>

@@ -1,4 +1,4 @@
-import * as cardStyles from '../../styles/structures/card.module.css'
+import * as styles from '../../styles/structures/card.module.css'
 import * as React from 'react'
 import Button from '../bricks/button';
 import cx from 'classnames';
@@ -32,18 +32,18 @@ export default function Card(props) {
     console.log(props);
 
     return (
-        <div className={ cardStyles.card }>
-            <div className={cardStyles.cardInner}>
-                <div className={cx(cardStyles.cardFront, imageClass && imageClass)}>
+        <div className={ styles.card }>
+            <div className={styles.cardInner}>
+                <div className={cx(styles.cardFront, imageClass && imageClass)}>
                     <ImageBlock image={featureImage} alt={featureImage} />
-                    <div className={cardStyles.header}>
+                    <div className={styles.header}>
                     <ul>
                         {categories.map( ( cat, index ) => <li key={index}>{ cat.categoryTitle }</li> ) }
                     </ul>
                     <Heading content={title} level="4" />
                     </div>
                 </div>
-                <div className={cardStyles.cardBack}>
+                <div className={styles.cardBack}>
                     <div>
                         <p>{excerpt}</p>
                     </div>

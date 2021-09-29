@@ -1,4 +1,4 @@
-import * as layoutStyles from '../../styles/layout.module.css'
+import * as styles from '../../styles/layout.module.css'
 import * as React from 'react'
 import Footer from './footer';
 import Header from './header';
@@ -13,7 +13,7 @@ export default function Layout({children}) {
     return (
         <div>
         <Header />
-        <main className={layoutStyles.container}>{children}</main>
+        <main className={styles.container}>{children}</main>
         <Footer />
         </div>
     )

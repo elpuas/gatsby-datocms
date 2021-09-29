@@ -1,4 +1,4 @@
-import * as headerStyles from '../../styles/structures/header.module.css'
+import * as styles from '../../styles/structures/header.module.css'
 import cx from 'classnames'
 import Logo from '../bricks/logo'
 import Navigation from './navigation'
@@ -35,7 +35,7 @@ export default function Header() {
     }, [goingUp]);
 
     return (
-        <header className={ cx( headerStyles.header, !goingUp && headerStyles.scroll ) }>
+        <header className={ cx( styles.header, !goingUp && styles.scroll ) }>
             <Logo />
             <Navigation />
         </header>
