@@ -29,6 +29,8 @@ export default function Card(props) {
         title,
     } = props
 
+    console.log(props);
+
     return (
         <div className={ cardStyles.card }>
             <div className={cardStyles.cardInner}>
@@ -43,7 +45,7 @@ export default function Card(props) {
                 </div>
                 <div className={cardStyles.cardBack}>
                     <div>
-                        <p>{excerpt && excerpt}</p>
+                        <p>{excerpt}</p>
                     </div>
                     <Button link={`/blog/${slug}`} label={label} format="secondary" />
                 </div>
@@ -65,5 +67,5 @@ Card.propTypes = {
 Card.defaultProps = {
     categories: ['Code', 'WordPress'],
     title: 'You must understand why I had to do that.',
-    excerpt: 'I run a small workshop of Web Design & Development, I specialize in custom WordPress Development & The JAMStack with GatsbyJS.'
+    // excerpt: 'I run a small workshop of Web Design & Development, I specialize in custom WordPress Development & The JAMStack with GatsbyJS.'
 }

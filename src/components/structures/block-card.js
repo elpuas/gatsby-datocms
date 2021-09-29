@@ -7,12 +7,12 @@ import ImageBlock from "../blocks/content-image";
 
 export default function BlockCards(props) {
     const {
-        title,
-        slug,
+        categories,
         excerpt,
-        postDate,
         featureImage,
-        categories
+        postDate,
+        slug,
+        title,
     } = props;
     const date = new Date(postDate);
     const createdOn = date.toLocaleDateString('en-US');
@@ -23,10 +23,10 @@ export default function BlockCards(props) {
                 <ul>
                     {categories.map( (cat, index) => <li key={index}>{cat.categoryTitle}</li>)}
                 </ul>
-                <Heading content={title} level="3" />
+                <Heading content={title} level="2" />
                 <time>{`Published on: ${createdOn}`}</time>
                 <ContentBlock content={excerpt} />
-                <Button link={slug} label="Read More" format="secondary" />
+                <Button link={`/blog/${slug}`} label="Read More" format="secondary" />
             </div>
             <ImageBlock image={featureImage} alt={featureImage} />
         </div>

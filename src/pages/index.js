@@ -78,6 +78,7 @@ query HomeQuery {
       }
       slug
       title
+      excerpt
     }
     contactBlock {
       heading
@@ -94,7 +95,6 @@ query HomeQuery {
         ... on DatoCmsArticle {
           slug
           title
-          excerpt
         }
         ... on DatoCmsCategory {
           slug

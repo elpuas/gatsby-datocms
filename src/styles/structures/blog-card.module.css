@@ -1,5 +1,18 @@
 .blogCard {
-    @apply my-8 flex flex-col-reverse md:flex-row items-center mb-16;
+    @apply my-8 flex flex-col-reverse md:flex-row items-center mb-16 p-8 rounded;
+    transition: all 250ms ease-in-out;
+}
+
+.blogCard:hover {
+    @apply shadow-2xl;
+    transform: translateY(-10px);
+}
+
+@screen md {
+    .blogCard {
+        @apply mx-auto;
+        max-width: 80vw;
+    }
 }
 
 .blogCard > div:first-child {
@@ -7,6 +20,20 @@
 }
 
 .blogCard > div:last-child {
-    @apply w-full md:w-4/12;
-    height: 300px;
+    @apply w-full md:w-5/12;
+    height: 350px;
+}
+
+.cardContent p {
+    @apply text-base mb-8;
+    line-height: 28px;
+}
+
+.cardContent h2 {
+    @apply pb-0;
+}
+
+.cardContent time {
+    @apply mb-8 block;
+    font-size: 14px;
 }

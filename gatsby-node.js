@@ -77,17 +77,18 @@ exports.createPages = ({ graphql, actions }) => {
                         totalCount
                         edges {
                             node {
-                            excerpt
-                            featureImage {
-                                alt
-                                gatsbyImageData
-                            }
-                            title
-                            slug
-                            categories {
+                                excerpt
+                                featureImage {
+                                    alt
+                                    gatsbyImageData
+                                }
+                                postDate
+                                title
                                 slug
-                                categoryTitle
-                            }
+                                categories {
+                                    slug
+                                    categoryTitle
+                                }
                             }
                         }
                     }
