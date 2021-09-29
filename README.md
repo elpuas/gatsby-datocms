@@ -32,9 +32,9 @@
 ├── .storybook
 └── src
 |  ├── components
-|     ├── atoms
+|     ├── bricks
 |     ├── blocks
-|     └── molecules
+|     └── structures
 |  ├── fonts
 |  ├── functions
 |  ├── hooks
@@ -42,9 +42,9 @@
 |  ├── pages
 |  ├── stories
 |  ├── styles
-|    ├── atoms
+|    ├── bricks
 |    ├── blocks
-|    ├── molecules
+|    ├── structures
 |    ├── pages
 |    ├── templates
 |  └── templates
@@ -101,10 +101,10 @@ exports.createPages = ({ graphql, actions }) => {
 ```
 Here we are creating pages based on the model `Article`, the GraphQL endpoint will be `allDatoCmsArticle`.
 
-This theme uses `gatsby-source-datocms` [visit the documentation](https://www.gatsbyjs.com/plugins/gatsby-source-datocms/) All the options.
+This theme uses `gatsby-source-datocms` [visit the documentation](https://www.gatsbyjs.com/plugins/gatsby-source-datocms/) for all the options.
 
 7.  **Storybook**
-      This theme uses [storybook](https://storybook.js.org/), for documenting components. this is very handy when styling a component
+      This theme uses [storybook](https://storybook.js.org/), for documenting components. this is very handy when styling a component, currently there is an issue with Gatsby Link and Gatsby Image, not working properly.
 
       ```shell
       npm run storybook
