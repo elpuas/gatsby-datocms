@@ -1,0 +1,21 @@
+.footer {
+    @apply mx-auto text-center;
+    max-width: 80%
+}
+
+.icons {
+    @apply flex items-center justify-center my-8;
+}
+
+.icons li:nth-child(2) {
+    @apply px-6;
+}
+
+.icons svg {
+    @apply w-10 h-10;
+    fill: black;
+}
+
+.icons svg:hover {
+    fill: #5534d1;
+}
